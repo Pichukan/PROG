@@ -9,3 +9,4 @@ if response.status_code == 200:    # Если код ответа на запр�
     print(response.text)
 else:
     print(response.status_code)    # При другом коде ответа выводим этот код
+print('Привет Ян')    
