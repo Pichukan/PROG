@@ -1,0 +1,23 @@
+{
+  "update_id": 14429398,
+  "message": {
+    "message_id": 38,
+    "from": {
+      "id": 2015160331,
+      "is_bot": false,
+      "first_name": "Aivar",
+      "last_name": "Pichukan",
+      "username": "PichOcenka",
+      "language_code": "ru"
+    },
+    "chat": {
+      "id": 2015160331,
+      "first_name": "Aivar",
+      "last_name": "Pichukan",
+      "username": "PichOcenka",
+      "type": "private"
+    },
+    "date": 1701110027,
+    "text": "12345"
+  }
+}
