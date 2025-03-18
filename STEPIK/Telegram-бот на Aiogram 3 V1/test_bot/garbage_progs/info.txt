@@ -1,0 +1,54 @@
+Cообщения с эффектом ТГ
+Огонек: "5104841245755180586"
+Палец вверх: "5107584321108051014"
+Палец вниз: "5104858069142078462"
+Сердечко "5044134455711629726"
+Хлопушка : "5046509860389126442"
+Фекалия: "5046589136895476101"
+--------------------------------------------------------------
+Жирный шрифт:
+from aiogram.enums import ParseMode # Новый импорт
+@dp.message(CommandStart())
+async def any_message(message: Message):
+    await message.answer(
+        "Привет, <b>друг!</b>", parse_mode=ParseMode.HTML)
+ Курсивный шрифт:
+        "Привет, <i>друг!</i>", parse_mode=ParseMode.HTML)
+Подчёркнутый шрифт:
+        "Привет, <u>друг!</u>", parse_mode=ParseMode.HTML)
+Зачеркнутый шрифт:
+        "Привет, <del>друг!</del>", parse_mode=ParseMode.HTML)
+ -------------------------------------------------------------       
+
+Цитата (MARKDOWN_V2):
+        ">Привет, друг\\!", parse_mode=ParseMode.MARKDOWN_V2 # Заметьте, parse_mode уже MARKDOWN_V2
+Код (MARKDOWN_V2):
+        "```Python\nПривет, друг!\n```", parse_mode=ParseMode.MARKDOWN_V2 # Заместо Python,вы можете написать все, что угодно. Но обычно, принято писать ЯП, который используется
+Скрытый (MARKDOWN_V2):
+        "Привет, ||друг\!||", parse_mode=ParseMode.MARKDOWN_V2   
+------------------------------------------------------------
+МАГИЧЕСКИЕ ФИЛЬТРЫ
+Мы не ограничиваемся только F.photo, есть куча всего, разберем некоторые:
+
+@dp.message(F.voice)
+async def voice(message: Message):
+    duration = message.voice.duration
+    await message.answer(f"Получил голосовое сообщение!\nДлительность — {duration} секунд.")
+
+@dp.message(F.sticker)
+async def sticker(message: Message):
+    sticker_emoji = message.sticker.emoji
+    set_name = message.sticker.set_name
+    await message.answer(f"Получен стикер — {sticker_emoji}\nНабор — '{set_name}'.")
+
+@dp.message(F.location)
+async def location(message: Message):
+    latitude = message.location.latitude
+    longitude = message.location.longitude
+    await message.answer(f"Китай тут какой-то.\nШирота: {latitude}, Долгота: {longitude}")
+
+@dp.message(F.contact)
+async def contact(message: Message):
+    contact_name = message.contact.first_name
+    contact_phone = message.contact.phone_number
+    await message.answer(f"Получил контакты юзера:\n\nУ тебя он записан: {contact_name}\nТелефон: {contact_phone}")
